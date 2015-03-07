@@ -15,11 +15,80 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OF-T7-eoW">
+                                <rect key="frame" x="250" y="340" width="100" height="30"/>
+                                <state key="normal" image="Microphone">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XjJ-2Z-x81"/>
+                                </connections>
+                            </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EuV-0N-WAv">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Co-Qb-LAQ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="stopButton">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopRecording:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="e4j-iI-Ve7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="4OF-T7-eoW" secondAttribute="centerX" id="JOl-lx-I7W"/>
+                            <constraint firstAttribute="centerY" secondItem="1Co-Qb-LAQ" secondAttribute="centerY" constant="-170" id="MPo-Tm-yJz"/>
+                            <constraint firstAttribute="centerX" secondItem="1Co-Qb-LAQ" secondAttribute="centerX" constant="-2" id="cKa-hF-TPd"/>
+                            <constraint firstAttribute="centerX" secondItem="EuV-0N-WAv" secondAttribute="centerX" constant="-0.5" id="cqi-t4-wO9"/>
+                            <constraint firstAttribute="centerY" secondItem="EuV-0N-WAv" secondAttribute="centerY" constant="-126.5" id="eEu-hb-fmB"/>
+                            <constraint firstAttribute="centerY" secondItem="4OF-T7-eoW" secondAttribute="centerY" constant="-48" id="eiu-QU-FwX"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="EuV-0N-WAv"/>
+                                <exclude reference="1Co-Qb-LAQ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="JOl-lx-I7W"/>
+                                <exclude reference="eiu-QU-FwX"/>
+                                <exclude reference="cqi-t4-wO9"/>
+                                <exclude reference="eEu-hb-fmB"/>
+                                <exclude reference="MPo-Tm-yJz"/>
+                                <exclude reference="cKa-hF-TPd"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="EuV-0N-WAv"/>
+                                <include reference="1Co-Qb-LAQ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="JOl-lx-I7W"/>
+                                <include reference="eiu-QU-FwX"/>
+                                <include reference="cqi-t4-wO9"/>
+                                <include reference="eEu-hb-fmB"/>
+                                <include reference="MPo-Tm-yJz"/>
+                                <include reference="cKa-hF-TPd"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="recordingInProgress" destination="EuV-0N-WAv" id="QrO-4a-qyt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="Microphone" width="100" height="100"/>
+        <image name="stopButton" width="50" height="50"/>
+    </resources>
 </document>
